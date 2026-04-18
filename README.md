@@ -1,5 +1,43 @@
 # ESP32 BLE HID Smart Mouse
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Platform-ESP32-blue?logo=espressif" />
+  <img src="https://img.shields.io/badge/Framework-ESP--IDF%205.5-green" />
+  <img src="https://img.shields.io/badge/BLE-HID%20Mouse-informational?logo=bluetooth" />
+  <img src="https://img.shields.io/badge/Build-PlatformIO-orange?logo=platformio" />
+  <img src="https://img.shields.io/badge/License-MIT-lightgrey" />
+</p>
+
+---
+
+## Project Description
+
+The **ESP32 BLE HID Smart Mouse** is a fully wireless, self-contained Bluetooth mouse built entirely around the **DOIT ESP32 DevKit V1** microcontroller. It replaces a conventional mouse with a **2-axis analog joystick** and communicates with any PC, phone, or tablet via standard **Bluetooth Low Energy (BLE) HID** — no drivers, no dongle, plug-and-play on Windows, macOS, Android, and iOS.
+
+Beyond basic cursor control, the device runs a rich **on-device UI** rendered on a 128×64 OLED display with six selectable modes:
+
+- 🖱️ **Normal / Left / Right cursor modes** — standard HID mouse with single, double, and hold clicks
+- 🔄 **Scroll mode** — smooth or stepped vertical/horizontal scrolling
+- 🎮 **Breakout game** — a fully playable ball-and-paddle game with three difficulty levels
+- 🌤️ **Live weather** — fetches real-time temperature, humidity, wind speed and conditions for up to four configurable cities via OpenWeatherMap API over WiFi
+- 💤 **Sleep screen** — after 30 seconds of idle, the display cycles through five creative tech-themed animations (nested boxes, PCB circuit, oscilloscope, crosshair, binary rain), changing every 15 seconds
+
+The firmware is written in **pure C** using the **ESP-IDF 5.5** framework with the **NimBLE** stack for BLE and **FreeRTOS** for task management. Everything — BLE stack, WiFi, HTTP client, JSON parser, OLED driver, ADC, and game engine — fits into **~1.14 MB** with room to spare on a 1.5 MB partition.
+
+**Key highlights:**
+| | |
+|---|---|
+| Wireless protocol | BLE 4.2 HID over GATT (NimBLE) |
+| Device name | `Shushant Mouse` |
+| Display | SSD1306 128×64 OLED (I²C) |
+| Cursor acceleration | Exponential curve (`powf(norm, 1.45)`) for precision at low speed and fast response at full deflection |
+| Auto-calibration | Joystick center is sampled 48 times at boot for zero-drift accuracy |
+| Weather API | OpenWeatherMap (free tier) |
+| Firmware size | ~1.14 MB (74% of 1.5 MB partition) |
+| Framework | ESP-IDF 5.5 / PlatformIO 6.x |
+
+---
+
 A fully wireless Bluetooth Low Energy (BLE) HID mouse built on the **DOIT ESP32 DevKit V1**, featuring a joystick-based cursor, an SSD1306 OLED display, live weather mode, a mini breakout game, and an animated sleep screen — all in one compact device.
 
 ---
